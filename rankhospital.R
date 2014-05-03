@@ -22,12 +22,11 @@ rankhospital <- function(state, outcome, num="best") {
         reportData[,2] <- as.numeric(reportData[,2]) ## getting figures of characters
         answer <- reportData[order(reportData[,2], reportData[,1]),] ## ordering data
         answer <- na.omit(answer) ## removing NAs
-        count <- nrow(answer) ## setting maximum 'num' value
         if (num == "best") {
                 num=1 ## choose the first hospital's name
         } else if (num =="worst") {
                 num = count ## get the last hospital's name
-        } else if (num > col) {
+        } else if (num > nrow(answer)) {
                 a = NA
                 a ## get 'NA' result
         } 
