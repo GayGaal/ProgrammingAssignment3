@@ -24,13 +24,12 @@ rankhospital <- function(state, outcome, num="best") {
         answer <- na.omit(answer) ## removing NAs
         count <- nrow(answer) ## setting maximum 'num' value
         if (num == "best") {
-                answer[1,1] ## choose the first hospital's name
+                num=1 ## choose the first hospital's name
         } else if (num =="worst") {
-                answer[count,1] ## get the last hospital's name
+                num = count ## get the last hospital's name
         } else if (num > col) {
                 a = NA
                 a ## get 'NA' result
-        } else {
-                answer[num,1] ## get rated result
-        }
+        } 
+        answer[num,1] ## get rated result
 }
